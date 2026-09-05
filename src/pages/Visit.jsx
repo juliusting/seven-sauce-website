@@ -19,6 +19,15 @@ export default function Visit() {
         <p className="eyebrow mb-4">Visit us</p>
         <h1 className="display text-[clamp(2.4rem,6vw,4.5rem)] text-ink mb-5">Find Seven Sauce</h1>
         <p className="text-ink-muted text-lg">We’re on the ground floor of {site.area}, {site.city}. Dine in, take away, or order for delivery.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {site.grabfood && (
+            <a href={site.grabfood} target="_blank" rel="noreferrer" className="btn text-white" style={{ background: '#00B14F' }}>Order on GrabFood</a>
+          )}
+          {site.foodpanda && (
+            <a href={site.foodpanda} target="_blank" rel="noreferrer" className="btn text-white" style={{ background: '#D70F64' }}>Order on foodpanda</a>
+          )}
+          <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-primary">WhatsApp to order</a>
+        </div>
       </section>
 
       <section className="container-x pb-12 grid md:grid-cols-3 gap-5">

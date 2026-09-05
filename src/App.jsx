@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar.jsx'
 import Footer from './components/layout/Footer.jsx'
+import FloatingActions from './components/layout/FloatingActions.jsx'
 import Home from './pages/Home.jsx'
 import Menu from './pages/Menu.jsx'
 import Story from './pages/Story.jsx'
@@ -19,6 +20,7 @@ function Layout() {
           <Outlet />
         </div>
       </main>
+      <FloatingActions />
       <ScrollRestoration />
       <Footer />
     </>

@@ -26,6 +26,8 @@ export default function Footer() {
             <li><a className="hover:text-cream" href={`mailto:${site.email}`}>{site.email}</a></li>
             <li><a className="hover:text-cream" href={site.instagram_url} target="_blank" rel="noreferrer">Instagram @{site.instagram}</a></li>
             <li><a className="hover:text-cream" href={site.facebook} target="_blank" rel="noreferrer">Facebook</a></li>
+            {site.grabfood && <li><a className="hover:text-cream" href={site.grabfood} target="_blank" rel="noreferrer">Order on GrabFood</a></li>}
+            {site.foodpanda && <li><a className="hover:text-cream" href={site.foodpanda} target="_blank" rel="noreferrer">Order on foodpanda</a></li>}
           </ul>
           <div className="mt-4 flex gap-3">
             <Link to="/menu" className="btn btn-ghost text-cream border-cream/30 text-xs">Menu</Link>
