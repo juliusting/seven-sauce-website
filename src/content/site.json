@@ -33,5 +33,6 @@
   "map_embed": "https://www.google.com/maps?q=Seven%20Sauce%20ICOM%20Square%20Jalan%20Pending%20Kuching&output=embed",
   "map_link": "https://www.google.com/maps/search/Seven+Sauce+ICOM+Square+Kuching",
   "hero_logo": "/images/hero/welcome-1.jpg",
-  "hero_interior": "/images/hero/welcome-2.png"
+  "hero_interior": "/images/hero/welcome-2.png",
+  "hero_bg": "/images/menu/R4-162.jpg"
 }

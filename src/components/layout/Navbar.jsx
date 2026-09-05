@@ -24,21 +24,24 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false) }, [location.pathname])
 
+  // Home has a dark full-bleed hero, so the transparent navbar needs light text there.
+  const onDark = location.pathname === '/' && !scrolled && !open
+
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${scrolled ? 'bg-cream/95 backdrop-blur border-b border-line' : 'bg-transparent'}`}>
       <nav className="container-x flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2.5" aria-label="Seven Sauce home">
-          <span className="grid place-items-center w-9 h-9 rounded-full border-2 border-seal text-seal font-display text-lg leading-none">酱</span>
+          <span className={`grid place-items-center w-9 h-9 rounded-full border-2 font-display text-lg leading-none ${onDark ? 'border-white text-white' : 'border-seal text-seal'}`}>酱</span>
           <span className="leading-tight">
-            <span className="block font-display text-lg font-semibold text-ink">Seven Sauce</span>
-            <span className="block text-[0.62rem] tracking-[0.28em] text-ink-muted">七个酱 · KUCHING</span>
+            <span className={`block font-display text-lg font-semibold ${onDark ? 'text-white' : 'text-ink'}`}>Seven Sauce</span>
+            <span className={`block text-[0.62rem] tracking-[0.28em] ${onDark ? 'text-white/70' : 'text-ink-muted'}`}>七个酱 · KUCHING</span>
           </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
           {LINKS.map((l) => (
             <NavLink key={l.to} to={l.to} end={l.end}
-              className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? 'text-seal' : 'text-ink hover:text-seal'}`}>
+              className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? (onDark ? 'text-white' : 'text-seal') : onDark ? 'text-white/85 hover:text-white' : 'text-ink hover:text-seal'}`}>
               {l.label}
             </NavLink>
           ))}
@@ -47,7 +50,7 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button className="md:hidden inline-grid place-items-center w-10 h-10 -mr-1 text-ink" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((v) => !v)}>
+        <button className={`md:hidden inline-grid place-items-center w-10 h-10 -mr-1 ${onDark ? 'text-white' : 'text-ink'}`} aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((v) => !v)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
             {open ? <><path d="M6 6l12 12" /><path d="M18 6L6 18" /></> : <><path d="M4 7h16" /><path d="M4 12h16" /><path d="M4 17h16" /></>}
           </svg>

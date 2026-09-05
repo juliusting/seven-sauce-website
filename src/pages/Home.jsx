@@ -11,41 +11,40 @@ export default function Home() {
   const reduced = useReducedMotion()
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="container-x pt-28 md:pt-36 pb-16 md:pb-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
-          <div className="relative z-10">
-            <p className="eyebrow mb-5 flex items-center gap-3"><span className="text-seal"><Sparkline /></span>{site.cuisine}</p>
-            <h1 className="display text-[clamp(2.6rem,6.5vw,5rem)] text-ink mb-6">
+      {/* Hero — full-bleed food background */}
+      <section className="relative overflow-hidden min-h-[92vh] flex items-center">
+        {/* background image */}
+        <motion.picture
+          className="absolute inset-0 block"
+          animate={reduced ? {} : { scale: [1, 1.06, 1] }}
+          transition={{ duration: 24, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <source srcSet={site.hero_bg.replace(/\.(jpe?g|png)$/i, '.avif')} type="image/avif" />
+          <source srcSet={site.hero_bg.replace(/\.(jpe?g|png)$/i, '.webp')} type="image/webp" />
+          <img src={site.hero_bg} alt="A Seven Sauce dish — braised pork and a runny egg over rice" className="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
+        </motion.picture>
+        {/* warm scrim for legibility */}
+        <div className="absolute inset-0" aria-hidden style={{ background: 'linear-gradient(100deg, rgba(24,18,14,0.86) 0%, rgba(24,18,14,0.62) 40%, rgba(24,18,14,0.2) 72%, rgba(24,18,14,0.05) 100%)' }} />
+        <div className="absolute inset-0" aria-hidden style={{ background: 'linear-gradient(0deg, rgba(24,18,14,0.5) 0%, transparent 40%)' }} />
+
+        <div className="container-x relative z-10 pt-28 md:pt-32 pb-16">
+          <div className="max-w-2xl">
+            <p className="eyebrow mb-5 flex items-center gap-3" style={{ color: '#F4C06A' }}><span><Sparkline /></span>{site.cuisine}</p>
+            <h1 className="display text-[clamp(2.7rem,7vw,5.5rem)] text-white mb-6" style={{ textShadow: '0 2px 24px rgba(0,0,0,0.35)' }}>
               <SplitText text="A family of seven." />
-              <span className="block text-seal italic"><SplitText text="A sauce for each." delay={0.35} /></span>
+              <span className="block italic" style={{ color: '#F4C06A' }}><SplitText text="A sauce for each." delay={0.35} /></span>
             </h1>
-            <p className="text-lg text-ink-muted max-w-xl mb-8 leading-relaxed">{site.intro}</p>
+            <p className="text-lg max-w-xl mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.82)' }}>{site.intro}</p>
             <div className="flex flex-wrap gap-3">
               <Link to="/menu" className="btn btn-primary">View the Menu</Link>
-              <Link to="/visit" className="btn btn-ghost">Find Us in Kuching</Link>
+              <Link to="/visit" className="btn text-white" style={{ border: '1px solid rgba(255,255,255,0.5)' }}>Find Us in Kuching</Link>
             </div>
-            <div className="mt-10 flex items-center gap-7 text-ink-muted">
-              <span className="flex items-center gap-2 text-seal"><NoodleBowl size={34} /><span className="text-sm text-ink-muted">98 dishes, all day</span></span>
-              <span className="flex items-center gap-2 text-jade"><TeaCup size={30} /><span className="text-sm text-ink-muted">Local drinks & tea</span></span>
+            <div className="mt-10 flex flex-wrap items-center gap-7">
+              <span className="flex items-center gap-2" style={{ color: '#F4C06A' }}><NoodleBowl size={34} /><span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>98 dishes, all day</span></span>
+              <span className="flex items-center gap-2" style={{ color: '#F4C06A' }}><TeaCup size={30} /><span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>Local drinks &amp; tea</span></span>
+              <span className="flex items-center gap-2 text-white/90"><SealMark size={30} /><span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>七个酱 · ICOM Square, Kuching</span></span>
             </div>
           </div>
-
-          <FadeInView className="relative" delay={0.15} y={20}>
-            <motion.div
-              className="relative rounded-[2rem] overflow-hidden shadow-xl shadow-ink/5 border border-line"
-              animate={reduced ? {} : { scale: [1, 1.02, 1] }}
-              transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}>
-              <Picture src={site.hero_interior} alt="Inside Seven Sauce — a bright, airy dining room in Kuching" eager aspectRatio="4/3" />
-            </motion.div>
-            <div className="absolute -bottom-5 -left-4 sm:left-6 bg-cream border border-line rounded-2xl px-5 py-4 shadow-lg shadow-ink/5 flex items-center gap-3">
-              <span className="text-seal"><SealMark size={40} /></span>
-              <div className="leading-tight">
-                <span className="block font-display text-lg text-ink">七个酱</span>
-                <span className="block text-xs text-ink-muted">ICOM Square, Kuching</span>
-              </div>
-            </div>
-          </FadeInView>
         </div>
       </section>
 
