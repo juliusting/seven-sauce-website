@@ -125,12 +125,25 @@ export default function Home() {
           <p className="text-ink-muted leading-relaxed mb-6">{site.catering}</p>
           <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-primary">Enquire on WhatsApp</a>
         </FadeInView>
-        <FadeInView delay={0.1} className="rounded-2xl border border-line bg-cream-alt p-8">
-          <h3 className="font-display text-2xl text-ink mb-4">Come by</h3>
-          <p className="text-ink-muted leading-relaxed">{site.address}</p>
-          <p className="text-ink-muted mt-3">{site.hours_note}</p>
-          <div className="mt-5 flex gap-3">
-            <Link to="/visit" className="btn btn-ghost">Directions & hours</Link>
+        <FadeInView delay={0.1} className="rounded-2xl border border-line bg-cream-alt overflow-hidden">
+          <div className="relative">
+            <iframe
+              title="Seven Sauce location on Google Maps"
+              src={site.map_embed}
+              className="w-full block"
+              style={{ border: 0, height: 220 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="p-8">
+            <h3 className="font-display text-2xl text-ink mb-4">Come by</h3>
+            <p className="text-ink-muted leading-relaxed">{site.address}</p>
+            <p className="text-ink-muted mt-3">{site.hours_note}</p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a href={site.map_link} target="_blank" rel="noreferrer" className="btn btn-primary">Get directions</a>
+              <Link to="/visit" className="btn btn-ghost">Hours & contact</Link>
+            </div>
           </div>
         </FadeInView>
       </section>

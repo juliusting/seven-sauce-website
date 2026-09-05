@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import site from '../../content/site.json'
+import { GRAB_PATH } from '../icons/grabPath.js'
 
 /* Brand marks (third-party brand colours kept inline per convention). */
 function WhatsAppIcon(props) {
@@ -28,10 +29,16 @@ function FacebookIcon(props) {
 }
 function GrabIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" {...props}>
-      <path d="M5 8h11l-1 9a2 2 0 0 1-2 1.8H8A2 2 0 0 1 6 17L5 8Z" />
-      <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
-      <path d="M13 20h5" />
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d={GRAB_PATH} />
+    </svg>
+  )
+}
+function LocationIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 21c4.5-5.2 7-8.1 7-11a7 7 0 1 0-14 0c0 2.9 2.5 5.8 7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
     </svg>
   )
 }
@@ -41,8 +48,9 @@ export default function FloatingActions() {
   const [open, setOpen] = useState(false)
 
   const socials = [
-    site.grabfood && { key: 'grab', href: site.grabfood, label: 'Order on GrabFood', Icon: GrabIcon, bg: '#00B14F', color: '#fff' },
+    site.grabfood && { key: 'grab', href: site.grabfood, label: 'Order on GrabFood', Icon: GrabIcon, bg: '#00B14F', color: '#fff', size: 30 },
     site.foodpanda && { key: 'panda', href: site.foodpanda, label: 'Order on foodpanda', Icon: GrabIcon, bg: '#D70F64', color: '#fff' },
+    { key: 'map', href: site.map_link, label: 'Find us on Google Maps', Icon: LocationIcon, bg: '#F3ECE0', color: '#2E6E68' },
     { key: 'ig', href: site.instagram_url, label: 'Instagram', Icon: InstagramIcon, bg: '#F3ECE0', color: '#C0392B' },
     { key: 'fb', href: site.facebook, label: 'Facebook', Icon: FacebookIcon, bg: '#F3ECE0', color: '#1877F2' },
   ].filter(Boolean)
@@ -64,7 +72,7 @@ export default function FloatingActions() {
             className="grid place-items-center w-12 h-12 rounded-full shadow-lg shadow-ink/15 border border-line"
             style={{ background: s.bg, color: s.color }}
           >
-            <s.Icon width={22} height={22} />
+            <s.Icon width={s.size || 22} height={s.size || 22} />
           </motion.a>
         ))}
       </AnimatePresence>
