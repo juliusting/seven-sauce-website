@@ -1,0 +1,35 @@
+{
+  "brand": "Seven Sauce",
+  "brand_zh": "七个酱",
+  "brand_full": "七个酱 Seven Sauce",
+  "tagline": "A family of seven. A sauce for each.",
+  "intro": "Seven Sauce is a family business — seven brothers and sisters, and one signature sauce for each of them. The kitchen blends Taiwanese and Malaysian flavours into food made for local tastes: hearty, affordable, and served in a bright, welcoming space.",
+  "cuisine": "Taiwanese × Malaysian home cooking",
+  "values": [
+    "Delicious",
+    "Affordable",
+    "Beautiful space"
+  ],
+  "address": "No. A106 & A107 (Ground Floor), Block A, ICOM Square, Jalan Pending, 93450 Kuching, Sarawak",
+  "area": "ICOM Square, Jalan Pending",
+  "city": "Kuching",
+  "state": "Sarawak",
+  "phone": "016-924 3519",
+  "phone_intl": "60169243519",
+  "whatsapp": "60169243519",
+  "email": "sevensauce888@gmail.com",
+  "instagram": "7sauce_kch",
+  "instagram_url": "https://www.instagram.com/7sauce_kch/",
+  "facebook": "https://www.facebook.com/7saucekch/",
+  "hours_note": "Opens from 7:30am. Closed the 2nd and 3rd Tuesday of every month.",
+  "catering": "Bulk and event catering for companies, families and schools (order ahead).",
+  "services": [
+    "Dine in",
+    "Takeaway",
+    "Delivery"
+  ],
+  "map_embed": "https://www.google.com/maps?q=Seven%20Sauce%20ICOM%20Square%20Jalan%20Pending%20Kuching&output=embed",
+  "map_link": "https://www.google.com/maps/search/Seven+Sauce+ICOM+Square+Kuching",
+  "hero_logo": "/images/hero/welcome-1.jpg",
+  "hero_interior": "/images/hero/welcome-2.png"
+}

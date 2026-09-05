@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html, body { overscroll-behavior-y: none; }
+  body {
+    background: theme(colors.cream);
+    color: theme(colors.ink);
+    font-family: theme(fontFamily.sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: theme(fontFamily.display); font-weight: 500; letter-spacing: -0.01em; }
+  *:focus { outline: none; }
+  *:focus-visible {
+    outline: 2px solid theme(colors.seal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .container-x { width: 100%; max-width: theme(maxWidth.container); margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 768px) { .container-x { padding: 0 2rem; } }
+
+  .eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 600; color: theme(colors.seal);
+  }
+  .display { font-family: theme(fontFamily.display); line-height: 1.02; letter-spacing: -0.02em; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px;
+    padding: 0.8rem 1.75rem; font-size: 0.85rem; font-weight: 600;
+    transition: transform 0.2s var(--ease-expo), background 0.2s, color 0.2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: theme(colors.seal); color: #fff; }
+  .btn-primary:hover { background: theme(colors.seal-dark); }
+  .btn-ghost { background: transparent; color: theme(colors.ink); border: 1px solid theme(colors.line); }
+  .btn-ghost:hover { border-color: theme(colors.seal); color: theme(colors.seal); }
+
+  .tag {
+    display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 999px;
+  }
+  .tag-spicy { background: #FCE9E4; color: #C0392B; }
+  .tag-veg { background: #E6F1E9; color: #2E6E68; }
+  .tag-halal { background: #EAF0E4; color: #4B7A2E; }
+  .tag-sea { background: #E7EFF5; color: #2A6396; }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .route-fade-in { animation: routeFadeIn 0.45s var(--ease-expo) both; }
+  @keyframes routeFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  /* iconic-item idle motions (project-prefixed: sevensauce-*) */
+  @keyframes sevensauce-steam { 0%,100% { opacity: 0.25; transform: translateY(0) scaleX(1); } 50% { opacity: 0.7; transform: translateY(-4px) scaleX(1.08); } }
+  @keyframes sevensauce-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes sevensauce-draw { to { stroke-dashoffset: 0; } }
+  @keyframes sevensauce-fizz { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 0.8; } 100% { transform: translateY(-9px); opacity: 0; } }
+  .anim-steam > * { animation: sevensauce-steam 2.6s ease-in-out infinite; }
+  .anim-bob { animation: sevensauce-bob 3.2s ease-in-out infinite; }
+  .anim-draw { stroke-dasharray: 200; stroke-dashoffset: 200; animation: sevensauce-draw 1.8s var(--ease-expo) forwards; }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-steam > *, .anim-bob { animation: none; }
+    .anim-draw { stroke-dashoffset: 0; animation: none; }
+    .route-fade-in { animation: none; }
+  }
+}

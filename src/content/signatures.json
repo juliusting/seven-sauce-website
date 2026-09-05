@@ -1,0 +1,46 @@
+{
+  "signatures": [
+    {
+      "name": "Soy-stewed Pork Rice",
+      "name_zh": "控肉饭",
+      "price_str": "RM 14.90",
+      "image": "/images/menu/R1-161.jpg",
+      "cat": "Taiwan Cuisine"
+    },
+    {
+      "name": "Cheese Egg Pancake",
+      "name_zh": "起司蛋饼",
+      "price_str": "RM 7.90",
+      "image": "/images/menu/P1-44.jpg",
+      "cat": "Egg Pancake"
+    },
+    {
+      "name": "Soft Boiled Egg",
+      "name_zh": "半熟蛋",
+      "price_str": "RM 3.00",
+      "image": "/images/menu/T1-14.jpg",
+      "cat": "Toast"
+    },
+    {
+      "name": "Nanru Pork Belly (Ala Carte)",
+      "name_zh": "南乳三层肉",
+      "price_str": "RM 9.90",
+      "image": "/images/menu/AL1-31.png",
+      "cat": "Ala Carte"
+    },
+    {
+      "name": "Milo",
+      "name_zh": "美碌",
+      "price_str": "RM 4.50",
+      "image": "/images/menu/D1-52.jpg",
+      "cat": "Local Drinks"
+    },
+    {
+      "name": "Fried Chicken Nasi Lemak",
+      "name_zh": "炸鸡椰浆饭",
+      "price_str": "RM 14.90",
+      "image": "/images/menu/R11-168.jpg",
+      "cat": "Nasi Lemak"
+    }
+  ]
+}
